@@ -533,6 +533,9 @@ require('lazy').setup({
         if name == 'ruby-lsp' then
           vim.lsp.config('ruby_lsp', server)
           vim.lsp.enable 'ruby_lsp'
+        elseif name == 'typescript-language-server' then
+          vim.lsp.config('ts_ls', server)
+          vim.lsp.enable 'ts_ls'
         else
           vim.lsp.config(name, server)
           vim.lsp.enable(name)
@@ -779,7 +782,6 @@ require('lazy').setup({
         'diff',
         'html',
         'javascript',
-        'javascriptreact',
         'json',
         'jsx',
         'lua',
@@ -787,13 +789,16 @@ require('lazy').setup({
         'markdown',
         'markdown_inline',
         'typescript',
-        'typescriptreact',
         'tsx',
         'query',
         'vim',
         'vimdoc',
       }
       require('nvim-treesitter').install(filetypes)
+      vim.list_extend(filetypes, {
+        'javascriptreact',
+        'typescriptreact',
+      })
       vim.api.nvim_create_autocmd('FileType', {
         pattern = filetypes,
         callback = function() vim.treesitter.start() end,
