@@ -66,10 +66,6 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 
 vim.o.expandtab = true
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.o.shiftround = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
